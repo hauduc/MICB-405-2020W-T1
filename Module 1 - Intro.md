@@ -34,13 +34,13 @@ Look at the man page for find and tree. How can you use these commands to get an
 
 ### Delve into man pages and help
 1.	What is the difference between the man page, --help argument, and -h argument?
-2.	Here is a list of useful Bash commands. Look up the man page for one of them and report your interpretation of the main use and the top 3 arguments you think would come most in handy for bioinformatics
-⋅⋅1. Awk
-b.	Sed
-c.	Grep
-d.	Cut
-e.	Paste
-f.	Tr
+2.	Here is a list of useful Bash commands. Look up the man page for one of them and report your interpretation of the main use and the top three arguments you think would come most in handy for bioinformatics
+⋅⋅a. Awk
+⋅⋅b. Sed
+⋅⋅c. Grep
+⋅⋅d. Cut
+⋅⋅e. Paste
+⋅⋅f. Tr
 
 c.	Terminal keyboard shortcuts
 i.	Tab (proposes predicted end of command)
