@@ -41,6 +41,7 @@ Look at the man page for find and tree. How can you use these commands to get an
     5. ```paste```
     6. ```tr```
 
+## Bonus
 ### Terminal keyboard shortcuts
 #### Basics
 1. Autocomplete command:
