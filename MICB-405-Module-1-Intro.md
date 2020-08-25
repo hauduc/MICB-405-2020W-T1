@@ -57,7 +57,7 @@ Look at the man page for find and tree. How can you use these commands to get an
 6. Paste:
 **Ctrl + Shift + c**
 7. Search command history:
-**Ctrl + e**
+**Ctrl + r**
 
 #### Navigating Text
 1. Move to beginning of line:
