@@ -15,4 +15,12 @@ If you are running Windows 10, I would highly recommend the Ubuntu [Windows Subs
 
 If you have a version of Windows earlier than Windows 10, or the Windows Subsystem for Linux simply doesn't work for you, I would recommend installing [Git Bash](https://gitforwindows.org/). With Git Bash you can ssh into the server and do all the work needed for the course, but has more limited functionality on your local machine.
 
+## "I'm in"
+[Test](https://media2.giphy.com/media/LcfBYS8BKhCvK/giphy.gif?cid=ecf05e4747b1d69a24ea3b94dd23c9634105af0c7416ebb9&rid=giphy.gif)
 
+At this point you should be ready to log on. If you are using a native command-line interface (CLI) or emulator you should be able to use the following command, replacing username with your actual username.
+
+ssh username@orca1.bcgsc.ca
+Enter your password when prompted. DON’T FREAK OUT WHEN CHARACTERS DON’T APPEAR - this is a security feature.
+
+Let’s break this command down: ssh is the command and stands for “secure-shell”. It allows users to log on to remote (opposite of ‘local’, which is your laptop in this instance) servers. All following text is the argument. There may be many arguments and each of these would be separated by spaces. username is mostly obvious, but crucially this positions your shell in the ‘home’ directory of username on the server’s system with the correct permissions. If everyone were to log on as root (“Administrator” in Windows-speak) this would be bad. orca-wg.bcgsc.ca (everything after the '@') is known as the hostname or domain name and is the name of the device on the network it is connected to. Super-nerds sometimes replace this with the IP address.
