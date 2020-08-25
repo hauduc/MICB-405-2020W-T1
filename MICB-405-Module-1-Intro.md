@@ -62,10 +62,10 @@ Look at the man page for find and tree. How can you use these commands to get an
 #### Navigating Text
 1. Move to beginning of line:
 **Ctrl + a**
-2. Move back one word:
-**Alt + b**
-3. Move to end of line:
+2. Move to end of line:
 **Ctrl + e**
+3. Move back one word:
+**Alt + b**
 4. Move forward one word:
 **Alt + f**
 
