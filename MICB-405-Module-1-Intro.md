@@ -32,7 +32,7 @@ Can you use ```ls```, ```cd```, and ```pwd``` to move through the folder system 
 Look at the man page for find and tree. How can you use these commands to get an overall picture of the filesystem? How can you use these commands to find a certain file?
 
 ### Delve into man pages and help
-1.	What is the difference between the man page, --help argument, and -h argument?
+1.	What is the difference between the ```man``` page, ```--help``` argument, and ```-h``` argument?
 2.	Here is a list of useful Bash commands. Look up the man page for one of them and report your interpretation of the main use and the top three arguments you think would come most in handy for bioinformatics.
     1. ```awk```
     2. ```sed```
