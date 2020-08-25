@@ -28,7 +28,7 @@ Let’s break this command down: ssh is the command and stands for “secure-she
 
 ## 3. Breakout Groups
 ### Explore the Orca server
-Can you use ls, cd, and pwd to move through the folder system and find out where you are?
+Can you use ```ls```, ```cd```, and ```pwd``` to move through the folder system and find out where you are?
 Look at the man page for find and tree. How can you use these commands to get an overall picture of the filesystem? How can you use these commands to find a certain file?
 
 ### Delve into man pages and help
