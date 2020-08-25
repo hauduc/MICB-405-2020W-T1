@@ -26,3 +26,57 @@ ssh username@orca1.bcgsc.ca
 Enter your password when prompted. DON’T FREAK OUT WHEN CHARACTERS DON’T APPEAR - this is a security feature.
 
 Let’s break this command down: ssh is the command and stands for “secure-shell”. It allows users to log on to remote (opposite of ‘local’, which is your laptop in this instance) servers. All following text is the argument. There may be many arguments and each of these would be separated by spaces. username is mostly obvious, but crucially this positions your shell in the ‘home’ directory of username on the server’s system with the correct permissions. If everyone were to log on as root (“Administrator” in Windows-speak) this would be bad. orca-wg.bcgsc.ca (everything after the '@') is known as the hostname or domain name and is the name of the device on the network it is connected to. Super-nerds sometimes replace this with the IP address.
+
+## 3. Breakout Groups
+Explore the Orca server
+Can you use ls, cd, and pwd
+Look at the man page for find and tree. How can you use these commands to get an overall picture of the filesystem? How can you use these commands to find a certain file?
+
+Delve into man pages and help
+i.	Man pages and Help
+1.	What is the difference between the man command, --help argument, and -h argument?
+2.	Here is a list of useful Bash commands. Look up the man page for one of them and report your interpretation of the main use and the top 3 arguments you think would come most in handy for bioinformatics
+a.	Awk
+b.	Sed
+c.	Grep
+d.	Cut
+e.	Paste
+f.	Tr
+
+c.	Terminal keyboard shortcuts
+i.	Tab (proposes predicted end of command)
+ii.	Up/Down Arrow Key
+iii.	Kill process
+1.	Ctrl + C
+
+End session
+1. Ctrl + D
+iv.	Simple copy/paste
+1.	Highlight text & right click
+2.	Ctrl + Shift + C
+v.	History search
+1.	Ctrl + E
+vi.	Navigating
+1.	Move to beginning
+a.	Ctrl + A
+2.	Move back one word
+a.	Alt + B
+3.	Move to end
+a.	Ctrl + E
+4.	Move forward one word
+a.	Alt + F
+vii.	More advanced:
+1.	Cut & Paste Kill & Yank
+a.	Cut (Kill) Before / After
+i.	Ctrl + U / Ctrl + K
+b.	Yank (Paste)
+i.	Ctrl + Y
+2.	Undo in-line action
+a.	Ctrl + _
+
+Can you navigate the terminal without using the mouse as input?
+With practice, full use of the keyboard is a lot more efficient.
+
+
+End of module.
+
