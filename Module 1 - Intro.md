@@ -43,11 +43,11 @@ Look at the man page for find and tree. How can you use these commands to get an
     6. ```tr```
 
 ### Terminal keyboard shortcuts
-#### The Basics
+#### Basics
 1. Autocomplete command:
 **TAB**
 2. Navigate command history:
-**↑** & **↓**
+**↑ ↓**
 3. Kill process:
 **Ctrl + c**
 4. End terminal or ssh session: 
@@ -70,14 +70,14 @@ Look at the man page for find and tree. How can you use these commands to get an
 **Alt + f**
 
 #### Advanced
-1. Terminal Cut (Kill) Text Before Cursor
+1. Terminal Cut (Kill) text before cursor:
 **Ctrl + u**
-2. Terminal Cut (Kill) Text After Cursor
+2. Terminal Cut (Kill) text after cursor
 **Ctrl + k**
 3. Terminal Paste (Yank)
 **Ctrl + y**
 4. Undo in-line action
-**Ctrl + Shift + -**
+**Ctrl + _**
 
 Can you navigate the terminal without using the mouse as input?
 With practice, full use of the keyboard is a lot more efficient.
