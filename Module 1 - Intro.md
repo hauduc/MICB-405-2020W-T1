@@ -1,6 +1,6 @@
-# Module 1 Worksheet:
+# Module 1 Worksheet
 ## ORCA Login & Getting Started with the Terminal
-### *TA: Axel Hauduc*
+### *Axel Hauduc*
 ### 11 September 2020
 Welcome to the first MICB-405 lab! Today, we're going to get started with the essential skills and tools you'll be using for the rest of the course.
 
