@@ -13,6 +13,6 @@ For the folks with Windows - there are several options.
 
 If you are running Windows 10, I would highly recommend the Ubuntu [Windows Subsystem for Linux](https://www.microsoft.com/en-ca/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab). You will need to follow the instructions on the store page for installation. While it takes slightly longer to install than other solutions, it will allow you to have full Bash/Linux-style functionality on your machine. You could practice 
 
-If you have a version of Windows earlier than Windows 10, or the Windows Subsystem for Linux simply doesn't work for you, I would recommend installing [Git Bash](i.	https://gitforwindows.org/)
+If you have a version of Windows earlier than Windows 10, or the Windows Subsystem for Linux simply doesn't work for you, I would recommend installing [Git Bash](https://gitforwindows.org/)
 
 You also have the option to install the Windows Subsystem for Linux, which will allow you to have a terminal that is similar to the *nix operating systems on your computer.
