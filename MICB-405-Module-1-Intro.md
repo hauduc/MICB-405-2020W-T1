@@ -30,7 +30,7 @@ Let’s break this command down: ssh is the command and stands for “secure-she
 ### Explore the Orca server
 Review the manual pages for ```ls```, ```cd```, and ```pwd``` by typing ```man``` followed by the command. Can you use them to move through your local machine's folder system and find out where you are? How about the Orca server?
 
-Look at the ```man``` page for ```find``` and ```tree```. How can you use these commands to get an overall picture of the filesystem? How can you use these commands to find a certain file?
+Look at the ```man``` pages for ```find``` and ```tree```. How can you use these commands to get an overall picture of the filesystem? How can you use these commands to locate a certain file?
 
 ### Delve into man pages and help
 1.	What is the difference between the ```man``` page, ```--help``` argument, and ```-h``` argument?
