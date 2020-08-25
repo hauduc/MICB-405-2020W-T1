@@ -17,7 +17,7 @@ If you have a version of Windows earlier than Windows 10, or the Windows Subsyst
 
 ## Logging in
 
-At this point you should be ready to [log on](https://media2.giphy.com/media/LcfBYS8BKhCvK/giphy.gif?cid=ecf05e4747b1d69a24ea3b94dd23c9634105af0c7416ebb9&rid=giphy.gif). On whichever terminal you are using, you should be able to use the following command, replacing username with your actual username.
+At this point you should be ready to [log in](https://media2.giphy.com/media/LcfBYS8BKhCvK/giphy.gif?cid=ecf05e4747b1d69a24ea3b94dd23c9634105af0c7416ebb9&rid=giphy.gif). On whichever terminal you are using, you should be able to use the following command, replacing username with your actual username:
 
 ```bash
 ssh username@orca1.bcgsc.ca
