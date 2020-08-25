@@ -71,11 +71,11 @@ Look at the man page for find and tree. How can you use these commands to get an
 #### Advanced
 1. Terminal Cut (Kill) text before cursor:
 **Ctrl + u**
-2. Terminal Cut (Kill) text after cursor
+2. Terminal Cut (Kill) text after cursor:
 **Ctrl + k**
-3. Terminal Paste (Yank)
+3. Terminal Paste (Yank):
 **Ctrl + y**
-4. Undo in-line action
+4. Undo in-line action:
 **Ctrl + _**
 
 Can you navigate the terminal without using the mouse as input?
