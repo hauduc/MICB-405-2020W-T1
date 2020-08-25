@@ -16,9 +16,9 @@ If you are running Windows 10, I would highly recommend the Ubuntu [Windows Subs
 If you have a version of Windows earlier than Windows 10, or the Windows Subsystem for Linux simply doesn't work for you, I would recommend installing [Git Bash](https://gitforwindows.org/). With Git Bash you can ssh into the server and do all the work needed for the course, but has more limited functionality on your local machine.
 
 ## "I'm in"
-![](https://media2.giphy.com/media/LcfBYS8BKhCvK/giphy.gif?cid=ecf05e4747b1d69a24ea3b94dd23c9634105af0c7416ebb9&rid=giphy.gif)
 
-At this point you should be ready to log on. If you are using a native command-line interface (CLI) or emulator you should be able to use the following command, replacing username with your actual username.
+
+At this point you should be ready to [log on](https://media2.giphy.com/media/LcfBYS8BKhCvK/giphy.gif?cid=ecf05e4747b1d69a24ea3b94dd23c9634105af0c7416ebb9&rid=giphy.gif). If you are using a native command-line interface (CLI) or emulator you should be able to use the following command, replacing username with your actual username.
 
 ssh username@orca1.bcgsc.ca
 Enter your password when prompted. DON’T FREAK OUT WHEN CHARACTERS DON’T APPEAR - this is a security feature.
