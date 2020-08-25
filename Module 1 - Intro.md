@@ -1,7 +1,6 @@
 # Module 1 Worksheet
 ## ORCA Login & Getting Started with the Terminal
-### *Axel Hauduc*
-### 11 September 2020
+### *Axel Hauduc - 11 September 2020*
 Welcome to the first MICB-405 lab! Today, we're going to get started with the essential skills and tools you'll be using for the rest of the course.
 
 ## 1. Accessing Bash on Linux or an equivalent
@@ -80,4 +79,4 @@ Look at the man page for find and tree. How can you use these commands to get an
 **Ctrl + _**
 
 Can you navigate the terminal without using the mouse as input?
-With practice, full use of the keyboard is a lot more efficient.
+After some practice, full use of the keyboard is a lot more efficient.
