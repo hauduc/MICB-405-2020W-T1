@@ -82,3 +82,6 @@ Look at the ```man``` pages for ```find``` and ```tree```. How can you use these
 
 Can you navigate the terminal without using the mouse as input?
 After some practice, full use of the keyboard is a lot more efficient.
+
+Further reading!
+https://astrobiomike.github.io/unix/getting-started
