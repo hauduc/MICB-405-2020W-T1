@@ -3,6 +3,8 @@
 ### *Axel Hauduc - 11 September 2020*
 Welcome to the first MICB-405 lab! Today, we're going to get started with the essential skills and tools you'll be using for the rest of the course.
 
+Once you have the first two sections done, you can move into your pre-assigned breakout group rooms and start working on Task #3!
+
 ## 1. Accessing Bash on Linux or equivalent (Main Room = Troubleshooting)
 In order to use the server your computer will either need a terminal/command-line interface or an emulator. These will be necessary for using the software tools throughout this course, so don’t think you can get away with not familiarizing yourself with one of these! 
 
