@@ -26,7 +26,7 @@ Enter your password when prompted. DON’T FREAK OUT WHEN CHARACTERS DON’T APP
 
 Let’s break this command down: ssh is the command and stands for “secure-shell”. It allows users to log on to remote (opposite of ‘local’, which is your computer in this instance) servers. All following text is the argument. There may be many arguments and each of these would be separated by spaces. username is mostly obvious, but crucially this positions your shell in the ‘home’ directory of username on the server’s system with the correct permissions. If everyone were to log on as root (“Administrator” in Windows-speak) this would be bad. orca-wg.bcgsc.ca (everything after the '@') is known as the hostname or domain name and is the name of the device on the network it is connected to. Super-nerds sometimes replace this with the IP address.
 
-## 3. Breakout Groups
+## 3. Bonus - Start work in your breakout groups
 ### Explore the Orca server
 Review the manual pages for ```ls```, ```cd```, and ```pwd``` by typing ```man``` followed by the command. Can you use them to move through your local machine's folder system and find out where you are? How about the Orca server?
 
@@ -34,7 +34,7 @@ Look at the ```man``` pages for ```find``` and ```tree```. How can you use these
 
 ### Delve into man pages and help
 1.	What is the difference between the ```man``` page, and ```--help``` or ```-h``` argument added to a command? When would you use either option?
-2.	Here is a list of useful Bash commands. Look up the man page for one of them and report your interpretation of the main use and the top three arguments you think would come most in handy for bioinformatics.
+2.	Here is a list of useful Bash commands. Look up the ```man``` page for one of them and report your interpretation of the main use and the top three arguments you think would come most in handy for bioinformatics.
     1. ```awk```
     2. ```sed```
     3. ```grep```
@@ -42,7 +42,6 @@ Look at the ```man``` pages for ```find``` and ```tree```. How can you use these
     5. ```paste```
     6. ```tr```
 
-## Bonus
 ### Terminal keyboard shortcuts
 #### Basics
 1. Autocomplete command:
