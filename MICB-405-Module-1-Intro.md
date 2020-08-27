@@ -35,13 +35,10 @@ Look at the ```man``` pages for ```find``` and ```tree```. How can you use these
 ### Delve into man pages and help
 1.	What is the difference between the ```man``` page, and ```--help``` or ```-h``` argument added to a command? When would you use either option? (try it on some commands, or look through StackExchange if you're confused)
 
-2.	Here is a list of useful Bash commands. Look up the ```man``` page for one of them and report your interpretation of the main use and the top three arguments you think would come most in handy for bioinformatics.
+2.	Here is a list of Bash commands often used in bioinformatics. Look up the ```man``` page for at least one of them. What do you think they do? Hypothetically, in what way do you think they could be used in a bioinformatics context? Which arguments would be the most handy? Discuss within your group!
     1. ```awk```
     2. ```sed```
     3. ```grep```
-    4. ```cut```
-    5. ```paste```
-    6. ```tr```
 
 ### Terminal keyboard shortcuts
 #### Basics
