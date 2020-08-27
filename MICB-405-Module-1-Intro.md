@@ -56,7 +56,7 @@ Look at the ```man``` pages for ```find``` and ```tree```. How can you use these
 5. Copy:
 **Highlight text & right click**
 6. Paste:
-**Ctrl + Shift + c**
+**Ctrl + Shift + c** or **right click**
 7. Search command history:
 **Ctrl + r**
 
