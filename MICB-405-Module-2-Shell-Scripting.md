@@ -20,6 +20,7 @@ Modify the previous script to that it accepts the file or directory name as an a
 
 
 # Breakout Room Session #2
+### Exercise 6
 Excercise 6: Create a list of files by executing the below command in a blank folder:
 ```bash
 touch {1..5}.fa; echo "this is a fasta file" | tee {1..5}.fa &> /dev/null; touch {1..3}.txt; echo "this is one of three text files" | tee {1..3}.txt &> /dev/null
