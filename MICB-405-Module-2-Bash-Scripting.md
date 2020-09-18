@@ -22,7 +22,7 @@ Write a shell script that takes the name of a file or directory and reports if i
 For the following sequence:
 ```GCGCGCCTGGGCCCGGGCCTGCCCGCGATCGGCGCGGCGCACGATCAAGGGCATGGCGACATTGTCCAGCGCCGTGAACTCCGGCAGCAGGTGATGGAACTGGTAGACAAAGCCCAGGCTGCGATTGCGCAAGGCGCTCTTGCGGGATTCGGACAGGCCGTCGGCCGAGGTGCCGTCGACCACGACCGAGCCGCTGCTGGGCACATCCAGCAGGCCCAGGATGTGCAGCAGCGTGCTCTTGCCCGACCCC```
 
-Create a script that looks through ```/projects/micb405/data/bordetella/*``` produces this output, or something similar:
+Create a script that looks through ```/projects/micb405/data/bordetella/*``` and produces the following output, or something similar:
 ```bash
 ahauduc_mb20@orca01:~$ bash script.bash
 F01_R1.fastq contains the sequence
