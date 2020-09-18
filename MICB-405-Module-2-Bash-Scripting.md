@@ -33,5 +33,7 @@ F01_R2_1M.fastq does not contain the sequence
 
 ## For more help...
 Check out chapters 2-5, 8, & 10 of https://www.asfa.k12.al.us/ourpages/auto/2016/8/10/55689107/A-Practical-Guide-to-Linux-Commands-Editors-and-Shell-Programming-2nd-Edition.pdf
+
+
 Look at the Bash games I sent out in my previous announcement as well!
 
