@@ -1,8 +1,8 @@
 # Module 2 Worksheet
 ## Bash & Scripting
-### *Axel Hauduc - 18 September 2020*
+#### *Axel Hauduc - 18 September 2020*
 
-# Breakout Room Session #1
+## Breakout Room Session
 ### Exercise 1
 Write a shell script that prints “Shell Scripting is Fun!” on the screen
 Now modify the shell script from exercise 1 to include a variable. The variable will hold the contents of the message “Shell Scripting is Fun!”
@@ -30,4 +30,8 @@ F01_R1_1M.fastq does not contain the sequence
 F01_R2.fastq does not contain the sequence
 F01_R2_1M.fastq does not contain the sequence
 ```
+
+## For more help...
+Check out chapters 2-5, 8, & 10 of https://www.asfa.k12.al.us/ourpages/auto/2016/8/10/55689107/A-Practical-Guide-to-Linux-Commands-Editors-and-Shell-Programming-2nd-Edition.pdf
+Look at the Bash games I sent out in my previous announcement as well!
 
