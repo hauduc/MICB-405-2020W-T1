@@ -1,6 +1,6 @@
-# Module 2 Worksheet
-## Bash & Scripting
-#### *Axel Hauduc - 18 September 2020*
+# Module 3 Worksheet
+## FASTQC
+#### *Axel Hauduc - 25 September 2020*
 
 ## Breakout Room Session
 ### Main Excercise - Part 1
