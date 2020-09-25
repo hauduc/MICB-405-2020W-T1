@@ -24,5 +24,5 @@ Look at "Sequence Duplication Levels". This pattern is very distinct, and it's h
 
 ### More information on FastQC!
 https://rtsf.natsci.msu.edu/genomics/tech-notes/fastqc-tutorial-and-faq/
-https://dnacore.missouri.edu/PDF/FastQC_Manual.pdf
 
+https://dnacore.missouri.edu/PDF/FastQC_Manual.pdf
