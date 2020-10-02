@@ -12,4 +12,5 @@
 
 ## More in-depth information here:
 http://www.htslib.org/doc/samtools.html
+
 http://www.htslib.org/doc/bcftools.html
