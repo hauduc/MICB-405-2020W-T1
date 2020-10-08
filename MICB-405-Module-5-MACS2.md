@@ -8,31 +8,28 @@ Local software that we will use
 ssh
 IGV
 
-Install Bioconda
-In your home directory, run
+#### Install Bioconda
+1. In your home directory, run:
+
 ```wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh```
 ```./Anaconda3-2020.07-Linux-x86_64.sh```
 
-Prepare your Orca home directory for tutorial
-```mkdir ~/ChIP_tutorial```
-```cd ~/ChIP_tutorial```
+Follow all the directions given - choose default parameters. These don't matter and can be changed later. Prepare your Orca home directory for tutorial:
+
+```mkdir ~/ChIP_tutorial && cd ~/ChIP_tutorial```
 
 
-Check the files needed for the tutorial
-```ls -lh /projects/micb405/data/mouse/chip_tutorial/```
+Check the files needed for the tutorial using ```ls -lh /projects/micb405/data/mouse/chip_tutorial/```. These are the files that will be used for the tutorial. They contain a subset of reads from generated for this project. If you want to check out their quality, use FastQC.
 
-These are the files that will be used for the workshop. They contain a subset of reads from generated for this project.
-Curious about quality - you should be - use FASTQC.
 
 What do the “.1” and “.2” in the file names mean?
 
 
 The (recommended) tools that you will working with to complete this project include:
-
-BWA
-SAMBAMBA (similar in functionality to samtools but general works faster)
-MACS2 (through Bioconda)
-IGV
+   * BWA
+   * SAMBAMBA (similar in functionality to samtools but general works faster)
+   * MACS2 (through Bioconda)
+   * IGV (installed on your computer)
 
 
 Aligning using BWA MEM
