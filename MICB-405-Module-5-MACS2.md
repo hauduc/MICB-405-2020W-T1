@@ -3,12 +3,11 @@
 #### *Axel Hauduc - 09 October 2020*
 
 ## Breakout Room Session
-### Main Excercise
 Local software that we will use
 ssh
 IGV
 
-#### Install Bioconda
+### Install Bioconda
 1. In your home directory, run:
 
 ```
@@ -39,7 +38,7 @@ The (recommended) tools that you will working with to complete this project incl
    * IGV (installed on your computer)
 
 
-#### Aligning using BWA MEM
+### Aligning using BWA MEM
 
 We will now process and map the reads using bwa mem.  Note the run time command syntax for bwa-mem is different (easier and faster) from bwa-aln introduced in class. The alignment process will take ~20min to complete depending on server load. It is highly recommended to construct your commands within a shell script and generated associated log files by redirecting STDOUT as described in class. To make your subsequent commands easier, remember that you can define paths to commonly used files/resources in your script or shell as variables. For example, you can define the path to where the indexed mm10 genome is and the directory to where the tutorial input files are stored (see below). Best practice is to use the explict (a.k.a. absolute) rather than implicit (a.k.a. relative) path when defining these variables, as that will ensure that your script will behave similarly no matter where it is located on your filesystem.
 
@@ -57,7 +56,7 @@ bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq >./Naiv
 Note that the -t 8 is to do multithreaded processing to improve speed. The $GENOME specifies the location of reference genome to use. The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads. The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
 This step will take some time expect the program to run for about 20 mins or longer depending on the server load
 
-#### Check files
+### Check files
 At the end, you should have something similar to:
 ```
 user01@orca01:~/ChIPworkshop$ ls -lh
@@ -71,7 +70,7 @@ total 8.7G
 -rw------- 1 mhirst orca_users   58 Oct  4 05:36 nohup.out
 ```
 
-#### Sort, markdup, and index alignments using SAMBAMBA
+### Sort, markdup, and index alignments using SAMBAMBA
 The output from BWA MEM is an unsorted SAM file. Downstream tools require a sorted BAM file as input, so an intermediate step is to sort and index the alignment to facilitate future steps. To do that you can use tools such as samtools or SAMBAMBA. The commands to do using SAMBAMBA (a faster version of samtools) are the following, for the first sample:
 
 ```
@@ -85,10 +84,10 @@ NOTE:  Indexes are automatically generated for you by SAMBAMBA
 
 Do you know how to do the same for the other sample?
 
-#### Clean-up intermediate files:
+### Clean-up intermediate files:
 Now is the time to clean-up any intermediate files that are not needed downstream. This would include the .sam, .bam, .sorted.bam file series keeping only the .sorted.mkdup.bam files needed by MACS2. When you are finished cleaning your files the working directory should be ~2.1G total
 
-#### Call peaks using MACS2
+### Call peaks using MACS2
 Before doing peak calling, it is necessary to have a sample dataset, as well as a control dataset. While MACS2 offers the option to perform both regular and broad peak-calling, in this case, we will only be doing regular peak calling, however the instructions are similar for broad peak-calling just add the additional flag --broad to the command.
 
 We will call peaks on sample Naive_H3K27ac.sorted.mkdup.bam and we will be using the Naive_Input.sorted.mkdup.bam as a control (background). Once you have the sorted, dupmarked bam files for all samples, you can perform the MACS2 peakcalling like this:
@@ -111,7 +110,7 @@ Note that you need to activate your Conda environment in order to use MACS2 now 
 
 Which output file contains the peak information?
 
-#### Check files
+### Check files
 At the end, you should have something similar to:
 ```
 user01@orca01:~/ChIPworkshop$ ls -lh
