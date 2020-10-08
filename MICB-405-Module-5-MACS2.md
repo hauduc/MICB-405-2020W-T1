@@ -17,9 +17,9 @@ wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 Follow all the directions given - choose default parameters. These don't matter and can be changed later. 
 ```
 conda create --name myenv
-source activate myenv
+conda activate myenv
 conda install -c bioconda macs2
-source deactivate
+conda deactivate
 ```
 
 Prepare your Orca home directory for tutorial:
@@ -95,9 +95,9 @@ Before doing peak calling, it is necessary to have a sample dataset, as well as 
 We will call peaks on sample Naive_H3K27ac.sorted.mkdup.bam and we will be using the Naive_Input.sorted.mkdup.bam as a control (background). Once you have the sorted, dupmarked bam files for all samples, you can perform the MACS2 peakcalling like this:
 
 ```
-source activate myenv
+conda activate myenv
 macs2 callpeak -t Naive_H3K27ac.sorted.mkdup.bam -c Naive_Input.sorted.mkdup.bam -f BAMPE -g mm -n Naive_H3K27ac -B -q 0.01
-source deactivate
+conda deactivate
 ```
 Note that you need to activate your Conda environment in order to use MACS2 now that it is installed in your conda environment
 
