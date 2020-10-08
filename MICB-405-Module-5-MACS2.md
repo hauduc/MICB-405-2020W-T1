@@ -11,16 +11,20 @@ IGV
 1. In your home directory, run:
 
 ```
+mkdir ~/software && cd ~/software
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 ./Anaconda3-2020.07-Linux-x86_64.sh
 ```
-Follow all the directions given - choose default parameters. These don't matter and can be changed later. 
+Follow all the directions given - choose default parameters. These don't matter and can be changed later.
+
+Then, create your conda environment for MACS2:
 ```
-conda create --name myenv
-conda activate myenv
+conda create --name my_macs2_env python=2.7.18
+conda activate my_macs2_env
 conda install -c bioconda macs2
-conda deactivate
+conda deactivate # when you're done using macs2
 ```
+Every time you will install MACS2, you will need to run ```conda activate my_macs2_env```
 
 Prepare your Orca home directory for tutorial:
 
