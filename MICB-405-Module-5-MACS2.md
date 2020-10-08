@@ -32,70 +32,41 @@ The (recommended) tools that you will working with to complete this project incl
    * IGV (installed on your computer)
 
 
-Aligning using BWA MEM
-We will now process and map the reads using bwa mem.  Note the run time command syntax for bwa-mem is different (easier and faster) from bwa-aln introduced in class.
+####Aligning using BWA MEM
 
-The alignment process will take ~20min to complete depending on server load.
+We will now process and map the reads using bwa mem.  Note the run time command syntax for bwa-mem is different (easier and faster) from bwa-aln introduced in class. The alignment process will take ~20min to complete depending on server load. It is highly recommended to construct your commands within a shell script and generated associated log files by redirecting STDOUT as described in class. To make your subsequent commands easier, remember that you can define paths to commonly used files/resources in your script or shell as variables. For example, you can define the path to where the indexed mm10 genome is and the directory to where the tutorial input files are stored (see below). Best practice is to use the explict (a.k.a. absolute) rather than implicit (a.k.a. relative) path when defining these variables, as that will ensure that your script will behave similarly no matter where it is located on your filesystem.
 
-It is highly recommended to construct your commands within a shell script and generated associated log files by redirecting standardOUT as described in class.  
+```
+GENOME=/projects/micb405/resources/genomes/mouse/mm10/bwa_index/mm10.fa
+DATA=/projects/micb405/data/mouse/chip_tutorial```
+```
 
-To make your subsequent commands easier you can define paths to commonly used files/resources in your script or shell as variables.  For example you can define the path to where the indexed mm10 genome is and the directory to where the tutorial input files are stored (see below).  Best practice is to use the explict path when defining.
+As should now be familiar, once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below. The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
 
-```GENOME=/projects/micb405/resources/genomes/mouse/mm10/bwa_index/mm10.fa```
-
-export GENOME
-
-
-
-DATA=/projects/micb405/data/mouse/chip_tutorial
-
-export DATA
-
-Once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below.
-
-
-
-The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
-
-
-
+```
 bwa mem -t 8 $GENOME $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq >./Naive_H3K27ac.sam 2>bwa_naive_h3k27ac.log &
-
 bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq >./Naive_Input.sam 2>bwa_naive_Input.log &
+```
 
 
-
-Note that the -t 8 is to do multithreaded processing to improve speed.
-
-The $GENOME specifies the location of reference genome to use.
-
-The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads.
-
-The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
-
+Note that the -t 8 is to do multithreaded processing to improve speed. The $GENOME specifies the location of reference genome to use. The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads. The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
 This step will take some time expect the program to run for about 20 mins or longer depending on the server load
 
 Check files
 At the end, you should have something similar to:
 
+
+```
 user01@orca01:~/ChIPworkshop$ ls -lh
-
 total 8.7G
-
 -rw-r--r-- 1 mhirst orca_users 4.3G Oct  4 05:33 Naive_H3K27ac.sam
-
 -rw-r--r-- 1 mhirst orca_users 4.5G Oct  4 05:36 Naive_Input.sam
-
 -rwxrwx--- 1 mhirst orca_users  479 Oct  4 05:17 bwa_aln.sh
-
 -rwxrwx--- 1 mhirst orca_users  469 Oct  4 05:10 bwa_aln.sh~
-
 -rw-r--r-- 1 mhirst orca_users  22K Oct  4 05:36 bwa_naive_Input.log
-
 -rw-r--r-- 1 mhirst orca_users  23K Oct  4 05:33 bwa_naive_h3k27ac.log
-
 -rw------- 1 mhirst orca_users   58 Oct  4 05:36 nohup.out
-
+```
 
 Sort, markdup, and index alignments using SAMBAMBA
 The output from BWA MEM is an unsorted SAM file. Downstream tools require a sorted BAM file as input, so an intermediate step is to sort and index the alignment to facilitate future steps. To do that you can use tools such as samtools or SAMBAMBA. The commands to do using SAMBAMBA (a faster version of samtools) are the following, for the first sample:
@@ -130,13 +101,13 @@ macs2 callpeak -t Naive_H3K27ac.sorted.mkdup.bam -c Naive_Input.sorted.mkdup.bam
 source deactivate
 
 
-The ‘-t’ is the treament or IP aligned and markdup bam file
+The -t is the treament or IP aligned and markdup bam file
 
 The -c is the control or INPUT aligned and markdup bam file
 
-The ‘-f’ indicates the input file type (BAM paired-end or BAMPE in this case)
+The -f indicates the input file type (BAM paired-end or BAMPE in this case)
 
-The `-g’ indicates the effective genome size (here precomputed for mm10 and provided as ‘mm’)
+The -g indicates the effective genome size (here precomputed for mm10 and provided as ‘mm’)
 
 The -n is the of the output file
 
