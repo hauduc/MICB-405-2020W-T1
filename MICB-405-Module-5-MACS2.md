@@ -52,8 +52,8 @@ DATA=/projects/micb405/data/mouse/chip_tutorial
 As should now be familiar, once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below. The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
 
 ```
-bwa mem -t 8 $GENOME $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq >./Naive_H3K27ac.sam 2>bwa_naive_h3k27ac.log &
-bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq >./Naive_Input.sam 2>bwa_naive_Input.log &
+bwa mem -t 8 $GENOME $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq > ./Naive_H3K27ac.sam 2> bwa_naive_h3k27ac.log &
+bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq > ./Naive_Input.sam 2> bwa_naive_Input.log &
 ```
 Note that the -t 8 is to do multithreaded processing to improve speed. The $GENOME specifies the location of reference genome to use. The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads. The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
 This step will take some time expect the program to run for about 20 mins or longer depending on the server load
@@ -61,7 +61,7 @@ This step will take some time expect the program to run for about 20 mins or lon
 ### Check files
 At the end, you should have something similar to:
 ```
-user01@orca01:~/ChIPworkshop$ ls -lh
+user01@orca01:~/ChIP_tutorial$ ls -lh
 total 8.7G
 -rw-r--r-- 1 mhirst orca_users 4.3G Oct  4 05:33 Naive_H3K27ac.sam
 -rw-r--r-- 1 mhirst orca_users 4.5G Oct  4 05:36 Naive_Input.sam
@@ -115,7 +115,7 @@ Which output file contains the peak information?
 ### Check files
 At the end, you should have something similar to:
 ```
-user01@orca01:~/ChIPworkshop$ ls -lh
+user01@orca01:~/ChIP_tutorial$ ls -lh
 total 3.2G
 -rw-r--r-- 1 mhirst orca_users 958M Oct  4 15:20 Naive_H3K27ac.sorted.mkdup.bam
 -rw-r--r-- 1 mhirst orca_users 5.6M Oct  4 15:20 Naive_H3K27ac.sorted.mkdup.bam.bai
@@ -136,11 +136,11 @@ total 3.2G
 ### Transfer relevant files to your local computer
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the bed graph files
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIPworkshop/*{.bdg,.bed} /path/to/local/folder```
+```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bdg,.bed} /path/to/local/folder```
 
 Also transfer the peak files
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIPworkshop/*.narrowPeak /path/to/local/folder```
+```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*.narrowPeak /path/to/local/folder```
 
 Load all the data in IGV
 Launch IGV on your computer.
