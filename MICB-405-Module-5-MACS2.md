@@ -13,14 +13,16 @@ IGV
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 ./Anaconda3-2020.07-Linux-x86_64.sh
-
+```
+Follow all the directions given - choose default parameters. These don't matter and can be changed later. 
+```
 conda create --name myenv
 source activate myenv
 conda install -c bioconda macs2
 source deactivate
 ```
 
-Follow all the directions given - choose default parameters. These don't matter and can be changed later. Prepare your Orca home directory for tutorial:
+Prepare your Orca home directory for tutorial:
 
 ```mkdir ~/ChIP_tutorial && cd ~/ChIP_tutorial```
 
@@ -44,7 +46,7 @@ We will now process and map the reads using bwa mem.  Note the run time command 
 
 ```
 GENOME=/projects/micb405/resources/genomes/mouse/mm10/bwa_index/mm10.fa
-DATA=/projects/micb405/data/mouse/chip_tutorial```
+DATA=/projects/micb405/data/mouse/chip_tutorial
 ```
 
 As should now be familiar, once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below. The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
@@ -136,7 +138,7 @@ Using a different terminal window that is not connected to the server (if you ar
 
 ```scp user01@orca1.bcgsc.ca:/home/user01/ChIPworkshop/*{.bdg,.bed} /path/to/local/folder```
 
-Also transfer the peak file
+Also transfer the peak files
 
 ```scp user01@orca1.bcgsc.ca:/home/user01/ChIPworkshop/*.narrowPeak /path/to/local/folder```
 
