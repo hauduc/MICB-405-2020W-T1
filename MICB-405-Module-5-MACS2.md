@@ -52,12 +52,13 @@ We will now process and map the reads using bwa mem.  Note the run time command 
 GENOME=/projects/micb405/resources/genomes/mouse/mm10/bwa_index/mm10.fa
 DATA=/projects/micb405/data/mouse/chip_tutorial
 ```
+You only need to ```export``` a variable if you want to add it to your current shell and have it persist between sessions. Since a script runs a subshell in a continuous session with its own unique variables, it's not necessary to ```export``` variables within it.
 
 As should now be familiar, once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below. The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
 
 ```
-bwa mem -t 8 $GENOME $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq > ./Naive_H3K27ac.sam 2> bwa_naive_h3k27ac.log &
-bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq > ./Naive_Input.sam 2> bwa_naive_Input.log &
+bwa mem -t 8 $GENOME ${DATA}/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq > ./Naive_H3K27ac.sam 2> bwa_naive_h3k27ac.log &
+bwa mem -t 8 $GENOME ${DATA}/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq > ./Naive_Input.sam 2> bwa_naive_Input.log &
 ```
 Note that the -t 8 is to do multithreaded processing to improve speed. The $GENOME specifies the location of reference genome to use. The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads. The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
 This step will take some time expect the program to run for about 20 mins or longer depending on the server load
@@ -150,7 +151,9 @@ bedGraphToBigWig input_bedgraph.sorted.bdg mm10.chrom.sizes input_bedgraph.sorte
 ### Transfer all relevant output files to your local computer
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the bed graph files
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bw,.narrowPeak,.chrom.sizes} /path/to/local/folder```
+```
+scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bw,.chrom.sizes} /path/to/local/folder
+```
 
 Load all the data in IGV & launch IGV on your computer.
 
