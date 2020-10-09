@@ -4,7 +4,7 @@
 
 ## Breakout Room Session
 
-## Install IGV for your laptop
+### Install IGV for your laptop
 http://software.broadinstitute.org/software/igv/download
 
 ### Install Bioconda
