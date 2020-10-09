@@ -3,9 +3,9 @@
 #### *Axel Hauduc - 09 October 2020*
 
 ## Breakout Room Session
-Local software that we will use
-ssh
-IGV
+
+## Install IGV for your laptop
+http://software.broadinstitute.org/software/igv/download
 
 ### Install Bioconda
 1. In your home directory, run:
