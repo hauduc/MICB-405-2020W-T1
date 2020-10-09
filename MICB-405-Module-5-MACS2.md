@@ -1,5 +1,5 @@
-# Module 4 Worksheet
-## ChIP-Seq
+# Module 5 Worksheet
+## ChIP-seq
 #### *Axel Hauduc - 09 October 2020*
 
 ## Breakout Room Session
