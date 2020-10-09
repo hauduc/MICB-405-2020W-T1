@@ -99,7 +99,7 @@ Before doing peak calling, it is necessary to have a sample dataset, as well as 
 We will call peaks on sample Naive_H3K27ac.sorted.mkdup.bam and we will be using the Naive_Input.sorted.mkdup.bam as a control (background). Once you have the sorted, dupmarked bam files for all samples, you can perform the MACS2 peakcalling like this:
 
 ```
-conda activate myenv
+conda activate my_macs2_env
 macs2 callpeak -t Naive_H3K27ac.sorted.mkdup.bam -c Naive_Input.sorted.mkdup.bam -f BAMPE -g mm -n Naive_H3K27ac -B -q 0.01
 conda deactivate
 ```
@@ -137,18 +137,25 @@ total 3.2G
 -rw------- 1 mhirst orca_users   58 Oct  4 05:36 nohup.out
 ```
 
-### Transfer relevant files to your local computer
+### Final Processing (stuff from the end of 2020-10-08 lecture)
+Convert to bigWig and sort (on the Orca server)
+```
+wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes > mm10.chrom.sizes
+LC_COLLATE=C sort -k1=1, -k2=2n treatment_bedgraph.bdg > treatment_bedgraph.sorted.bdg
+LC_COLLATE=C sort -k1=1, -k2=2n input_bedgraph.bdg > input_bedgraph.sorted.bdg
+bedGraphToBigWig treatment_bedgraph.sorted.bdg mm10.chrom.sizes treatment_bedgraph.sorted.bdg.bw
+bedGraphToBigWig input_bedgraph.sorted.bdg mm10.chrom.sizes input_bedgraph.sorted.bdg.bw
+```
+
+### Transfer all relevant output files to your local computer
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the bed graph files
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bdg,.bed} /path/to/local/folder```
+```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bw,.narrowPeak,.chrom.sizes} /path/to/local/folder```
 
-Also transfer the peak files
+Load all the data in IGV & launch IGV on your computer.
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*.narrowPeak /path/to/local/folder```
-
-Load all the data in IGV
-Launch IGV on your computer.
-
-If you haven’t installed it yet, please get it here IGV download. Make sure you are loading the Mouse (mm10) reference genome by clicking on the drop-down menu on the top left hand corner. IGV will warn you about the size of the .bdg (bedgraph) file and suggest you convert to a binary .tdf format.  You can easily do this using the TOOLS functions within IGV. Note older versions of IGV do not recognize the .bdg EXTENSION DISCUSSED IN CLASS - change it to .bedgraph and voila! Load the narrowpeak and bedgraph.tdf files and explore.
+If you haven’t installed it yet, please get it here IGV download. Make sure you are loading the Mouse (mm10) reference genome by clicking on the drop-down menu on the top left hand corner.
 
 CONGRATULATIONS! You have now completed your first ChIP-seq analysis.  
+
+Now, find one 
