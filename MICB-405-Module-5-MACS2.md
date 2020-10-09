@@ -158,4 +158,4 @@ If you haven’t installed it yet, please get it here IGV download. Make sure yo
 
 CONGRATULATIONS! You have now completed your first ChIP-seq analysis.  
 
-Now, find one 
+Now, find one H3K27ac peak. What is its chromosomal position? Based on your two bed.bw files, how do you know it's a peak?
