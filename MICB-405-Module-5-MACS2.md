@@ -137,7 +137,7 @@ total 3.2G
 -rw------- 1 mhirst orca_users   58 Oct  4 05:36 nohup.out
 ```
 
-### Final Processing (stuff from the end of 2020-10-08 lecture)
+### Final Processing (from the end of Thursday, October 8 lecture)
 Convert to bigWig and sort (on the Orca server)
 ```
 wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes > mm10.chrom.sizes
