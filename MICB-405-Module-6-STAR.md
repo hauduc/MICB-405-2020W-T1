@@ -20,7 +20,7 @@ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR213/009/ERR2130649/ERR2130649.fastq.g
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR213/003/ERR2130623/ERR2130623.fastq.gz
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR213/004/ERR2130614/ERR2130614.fastq.gz
 ```
-## Unzip just the fasta reference and gtf file, and make directories for your STAR index and sample files
+## Unzip just the fasta reference and gtf file, and make directories for your STAR index and sample files   
 ```
 gunzip *{gtf,fa}.gz
 mkdir STARIndex sample1 sample2 sample3 sample4 sample_n
