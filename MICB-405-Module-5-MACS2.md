@@ -1,26 +1,30 @@
-# Module 4 Worksheet
-## ChIP-Seq
+# Module 5 Worksheet
+## ChIP-seq
 #### *Axel Hauduc - 09 October 2020*
 
 ## Breakout Room Session
-Local software that we will use
-ssh
-IGV
+
+### Install IGV for your laptop
+http://software.broadinstitute.org/software/igv/download
 
 ### Install Bioconda
 1. In your home directory, run:
 
 ```
+mkdir ~/software && cd ~/software
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 ./Anaconda3-2020.07-Linux-x86_64.sh
 ```
-Follow all the directions given - choose default parameters. These don't matter and can be changed later. 
+Follow all the directions given - choose default parameters. These don't matter and can be changed later.
+
+Then, create your conda environment for MACS2:
 ```
-conda create --name myenv
-conda activate myenv
+conda create --name my_macs2_env python=2.7.18
+conda activate my_macs2_env
 conda install -c bioconda macs2
-conda deactivate
+conda deactivate # when you're done using macs2
 ```
+Every time you will install MACS2, you will need to run ```conda activate my_macs2_env```
 
 Prepare your Orca home directory for tutorial:
 
@@ -48,12 +52,13 @@ We will now process and map the reads using bwa mem.  Note the run time command 
 GENOME=/projects/micb405/resources/genomes/mouse/mm10/bwa_index/mm10.fa
 DATA=/projects/micb405/data/mouse/chip_tutorial
 ```
+You only need to ```export``` a variable if you want to add it to your current shell and have it persist between sessions. Since a script runs a subshell in a continuous session with its own unique variables, it's not necessary to ```export``` variables within it.
 
 As should now be familiar, once defined you can call these paths in your script/shell by entering the special character $ followed by the variable name as shown below. The following command will run run bwa mem and output the .sam file in your current working directory.  You can use this or design your own.
 
 ```
-bwa mem -t 8 $GENOME $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq > ./Naive_H3K27ac.sam 2> bwa_naive_h3k27ac.log &
-bwa mem -t 8 $GENOME $DATA/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq > ./Naive_Input.sam 2> bwa_naive_Input.log &
+bwa mem -t 8 $GENOME ${DATA}/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq > ./Naive_H3K27ac.sam 2> bwa_naive_h3k27ac.log &
+bwa mem -t 8 $GENOME ${DATA}/Naive_Input_1.fastq $DATA/Naive_Input_2.fastq > ./Naive_Input.sam 2> bwa_naive_Input.log &
 ```
 Note that the -t 8 is to do multithreaded processing to improve speed. The $GENOME specifies the location of reference genome to use. The $DATA/Naive_H3K27ac_1.fastq $DATA/Naive_H3K27ac_2.fastq  specifies the location of the reads. The >./Naive_H3K27ac.sam  indicates the name of the oputput file.
 This step will take some time expect the program to run for about 20 mins or longer depending on the server load
@@ -95,7 +100,7 @@ Before doing peak calling, it is necessary to have a sample dataset, as well as 
 We will call peaks on sample Naive_H3K27ac.sorted.mkdup.bam and we will be using the Naive_Input.sorted.mkdup.bam as a control (background). Once you have the sorted, dupmarked bam files for all samples, you can perform the MACS2 peakcalling like this:
 
 ```
-conda activate myenv
+conda activate my_macs2_env
 macs2 callpeak -t Naive_H3K27ac.sorted.mkdup.bam -c Naive_Input.sorted.mkdup.bam -f BAMPE -g mm -n Naive_H3K27ac -B -q 0.01
 conda deactivate
 ```
@@ -133,18 +138,27 @@ total 3.2G
 -rw------- 1 mhirst orca_users   58 Oct  4 05:36 nohup.out
 ```
 
-### Transfer relevant files to your local computer
+### Final Processing (from the end of Thursday, October 8 lecture)
+Convert to bigWig and sort (on the Orca server)
+```
+wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes > mm10.chrom.sizes
+LC_COLLATE=C sort -k1=1, -k2=2n treatment_bedgraph.bdg > treatment_bedgraph.sorted.bdg
+LC_COLLATE=C sort -k1=1, -k2=2n input_bedgraph.bdg > input_bedgraph.sorted.bdg
+bedGraphToBigWig treatment_bedgraph.sorted.bdg mm10.chrom.sizes treatment_bedgraph.sorted.bdg.bw
+bedGraphToBigWig input_bedgraph.sorted.bdg mm10.chrom.sizes input_bedgraph.sorted.bdg.bw
+```
+
+### Transfer all relevant output files to your local computer
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the bed graph files
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bdg,.bed} /path/to/local/folder```
+```
+scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*{.bw,.chrom.sizes} /path/to/local/folder
+```
 
-Also transfer the peak files
+Load all the data in IGV & launch IGV on your computer.
 
-```scp user01@orca1.bcgsc.ca:/home/user01/ChIP_tutorial/*.narrowPeak /path/to/local/folder```
-
-Load all the data in IGV
-Launch IGV on your computer.
-
-If you haven’t installed it yet, please get it here IGV download. Make sure you are loading the Mouse (mm10) reference genome by clicking on the drop-down menu on the top left hand corner. IGV will warn you about the size of the .bdg (bedgraph) file and suggest you convert to a binary .tdf format.  You can easily do this using the TOOLS functions within IGV. Note older versions of IGV do not recognize the .bdg EXTENSION DISCUSSED IN CLASS - change it to .bedgraph and voila! Load the narrowpeak and bedgraph.tdf files and explore.
+If you haven’t installed it yet, please get it here IGV download. Make sure you are loading the Mouse (mm10) reference genome by clicking on the drop-down menu on the top left hand corner.
 
 CONGRATULATIONS! You have now completed your first ChIP-seq analysis.  
+
+Now, find one H3K27ac peak. What is its chromosomal position? Based on your two bed.bw files, how do you know it's a peak?
