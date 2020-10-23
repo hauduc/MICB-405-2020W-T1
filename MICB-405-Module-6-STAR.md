@@ -4,9 +4,7 @@
 
 ### Resources:
 Original paper: https://www.nature.com/articles/sdata2017185
-
 Data source from original paper: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6081/samples/
-
 STAR documentation: https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf
 
 ### Step 1: Download mouse reference genome (FASTA, mm10) and gene annotation file (GTF)
@@ -33,7 +31,7 @@ STAR --runMode genomeGenerate \
 ```
 
 ### Step 4: Download healthy tissue RNAseq FASTQ files
-#### Discuss among your group an idea for what you would want to investigate given the data you have available.
+#### Discuss among your group an idea for what you could investigate given the data you have available.
 Download the FASTQ files that will allow you to accomplish this. Which ones did you choose, and for what purpose?
 ```
 # In my case, I'm downloading 4 tissue types from the first individual mouse in order to observe differential gene expression in these areas.
