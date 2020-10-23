@@ -3,9 +3,11 @@
 #### *Axel Hauduc - 23 October 2020*
 
 ### Resources:
-#### Original paper: https://www.nature.com/articles/sdata2017185
-#### Data source from original paper: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6081/samples/
-#### STAR documentation: https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf
+Original paper: https://www.nature.com/articles/sdata2017185
+
+Data source from original paper: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6081/samples/
+
+STAR documentation: https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf
 
 ### Step 1: Download mouse reference genome (FASTA, mm10) and gene annotation file (GTF)
 ```
