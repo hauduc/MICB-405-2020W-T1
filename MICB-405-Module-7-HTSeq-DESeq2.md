@@ -1,6 +1,7 @@
-# Module 6 Worksheet
-## STAR
+# Module 7 Worksheet
+## HTSeq and DESeq2
 #### *Axel Hauduc - 30 October 2020*
+#### Adapted from tutorial by Andrew Wilson, October 2019
 
 ### Resources:
 Original paper: https://www.nature.com/articles/sdata2017185
@@ -21,7 +22,7 @@ In this tutorial, we will use DESeq2 to analyze some RNA-Seq data. This tutorial
 
 ### HTSeq Overview
 
-Normally, you would create your own count files from the STAR alignments you produced, using the following code:
+Normally, you would use HTSeq to create your own count files from the STAR alignments you produced, using the following code:
 
 ```
 conda create -n my_htseq_env python=2.7.18
@@ -38,12 +39,12 @@ Mus_musculus.GRCm38.84.gtf \
 ``` 
 ...and repeat for every sample.
 
-However, due to constraints on time and available disk space on the server, we will be 
+However, due to constraints on time and available disk space on the server, we will be downloading existing count data from an experiment containing 6 samples grouped into control and treatment categories.
 
 ### DESeq2 Setup
-All of the data for this tutorial is located on the Orca1 server in `/projects/micb405/resources/DESeq2_tutorial/`. Use `scp` to copy the entire directory to your computer. 
+All of the data for this tutorial is located on the Orca1 server in `/projects/micb405/resources/DESeq2_tutorial/`. Use `scp` to copy the entire directory to your computer, and move the directory to where you keep your MICB405 files.
 
-Open RStudio and create a new R project (File > New Project). A window like this should pop up.
+Open RStudio and create a new R project (File > New Project).
 
 Since we want all of our DESeq2 tutorial materials together, click on 'Existing Directory' and choose the `DESeq2_tutorial` directory that you copied from the server. 
 
@@ -53,12 +54,13 @@ One of the most important aspects of any bioinformatics is making sure that your
 #### Setting up your script
 You should always begin an R script with a simple header:
 ```{r script header, eval = FALSE}
-# Your name (e. g. Andrew Wilson)
+# Your name
 # Title of your script (e.g. MICB405 DESeq2 tutorial)
-# Date of your last update (e.g. 18 Oct 2019)
+# Date of your last update
 ```
 
 The next step of any R script is to load all of the packages that you plan to use:
+
 Be sure to install any packages you have not installed previously on your laptop.
 ```{r load packages, message=FALSE, warning=FALSE}
 library(DESeq2)
@@ -169,4 +171,7 @@ If you want more information about DESeq2, you can access the package vignette b
 ```{r vignette, eval=FALSE}
 vignette("DESeq2")
 ```
+
+### Deliverable
+Now that you have a distance matrix and a 
 
