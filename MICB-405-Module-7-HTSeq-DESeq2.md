@@ -12,6 +12,8 @@ STAR documentation: https://github.com/alexdobin/STAR/blob/master/doc/STARmanual
 
 HTSeq-count documentation: https://htseq.readthedocs.io/en/release_0.11.1/count.html
 
+DESeq2 vignette: https://www.bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+
 ### Overview
 In this tutorial, we will use DESeq2 to analyze some RNA-Seq data. This tutorial covers how to:  
 1. Review how to use HTSeq on data you generated on your own
