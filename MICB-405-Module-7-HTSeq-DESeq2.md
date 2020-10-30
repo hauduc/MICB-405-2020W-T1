@@ -1,23 +1,56 @@
-# Overview
-In this tutorial, we will use DESeq2 to analyze the RNA-Seq data you aligned using STAR in the previous tutorial. This tutorial covers how to:  
-1. Load counts data into R  
+# Module 6 Worksheet
+## STAR
+#### *Axel Hauduc - 30 October 2020*
+
+### Resources:
+Original paper: https://www.nature.com/articles/sdata2017185
+
+Data source from original paper: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6081/samples/
+
+STAR documentation: https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf
+
+HTSeq-count documentation: https://htseq.readthedocs.io/en/release_0.11.1/count.html
+
+### Overview
+In this tutorial, we will use DESeq2 to analyze some RNA-Seq data. This tutorial covers how to:  
+1. Review how to use HTSeq on data you generated on your own
+1. Load counts from new data (not your own) into R  
 2. Set controls for DESeq2 by changing factor levels  
 3. Run sanity checks to ensure your results make biological sense  
-4. Filter differential expression tables by Padj and Log2 fold change  
+4. Filter differential expression tables by Padj and Log2 fold change 
 
-# Setup
+### HTSeq Overview
+
+Normally, you would create your own count files from the STAR alignments you produced, using the following code:
+
+```
+conda create -n my_htseq_env python=2.7.18
+conda activate my_htseq_env
+conda install htseq
+
+htseq-count \
+<sample_id>/<sample_id>.fastq.gzAligned.sortedByCoord.out.bam \
+Mus_musculus.GRCm38.84.gtf \
+-f bam \
+-r pos \
+--stranded=no \
+> <sample_id>.htseq.out
+``` 
+...and repeat for every sample.
+
+However, due to constraints on time and available disk space on the server, we will be 
+
+### DESeq2 Setup
 All of the data for this tutorial is located on the Orca1 server in `/projects/micb405/resources/DESeq2_tutorial/`. Use `scp` to copy the entire directory to your computer. 
 
 Open RStudio and create a new R project (File > New Project). A window like this should pop up.
 
-![](images/new.project1.png){width=50%}
-
 Since we want all of our DESeq2 tutorial materials together, click on 'Existing Directory' and choose the `DESeq2_tutorial` directory that you copied from the server. 
 
-# Scripting in R
+### Scripting in R
 One of the most important aspects of any bioinformatics is making sure that your code is easy to read and well documented. This means that scripts should be organized and you should use comments to split your code into different sections.
 
-## Setting up your script
+#### Setting up your script
 You should always begin an R script with a simple header:
 ```{r script header, eval = FALSE}
 # Your name (e. g. Andrew Wilson)
@@ -26,6 +59,7 @@ You should always begin an R script with a simple header:
 ```
 
 The next step of any R script is to load all of the packages that you plan to use:
+Be sure to install any packages you have not installed previously on your laptop.
 ```{r load packages, message=FALSE, warning=FALSE}
 library(DESeq2)
 library(tidyverse)
@@ -33,7 +67,7 @@ library(pheatmap)
 library(RColorBrewer)
 ```
 
-## Loading data
+#### Loading data
 It is best practice to collect all input files in a folder (most often called "data") from which files will only be loaded but not overwritten.
 
 Since there are multiple input files, we can use R to automatically generate paths to the files we want to open. All of the data files are in the same directory, so to save us some typing we can assign the path to that directory as a variable.
@@ -66,7 +100,7 @@ file.exists(files)
 all(file.exists(files))
 ```
 
-# Running DESeq2
+### Running DESeq2
 DESeq2 requires that all of your data be in the shape of a SummarizedExperiment object. Since reshaping your input data with your own code would be complicated, there are functions within DESeq2 specific for the source of your counts file, which will prepare your data for use in DESeq2. Since we are using HTSeq to generate our counts data in this class, the function we need is called `DESeqDataSetFromHTSeqCount()`. One of the required arguments is `sampleTable`, which must be provided a data table with columns for "sampleName", "fileName", and for any of the independent variables you changed in your experiment (eg. sex, treatment, tissue). For that purpose, we can quickly build `sample_df` from the loaded metadata `sample_metadata` and the vector of file paths `files`, that we defined earlier.
 
 The other required argument for `DESeqDataSetFromHTSeqCount()` is `design`. The design argument is a formula, designated by the tilde symbol `~`, and identifies which independent variable(s) you want to investigate. In our data, we have only a single independent variable, i.e. "condition". Experiments with multifactorial experimental design are a lot more complicated to investigate.
@@ -93,7 +127,7 @@ Now that the reference level has been set, we can run DESeq2 on the dataset.
 dds <- DESeq(ddsHTSeq)
 ```
 
-# Sample Clustering
+### Sample Clustering
 Because the distribution of RNA Seq data is highly skewed, with a few high abundance genes and many low abundance genes, it is helpful to transform our data to visualize clustering. DESeq2 comes with a function `rlog()`, which log-transforms your count data. After transformation, we can use PCA to identify which samples are more similar and if they group by one or more of the independent variables (in our case, we  have only a single variable that can take "control" or "treated").
 
 ```{r pca} 
@@ -115,7 +149,7 @@ pheatmap(sample_dist_matrix,
 
 If the samples don't cluster together the way that you would expect them to, check for batch effects.
 
-# Filtering and data export
+### Filtering and data export
 Since our samples cluster according to the independent variable, we can move forward with our analysis. To examine our results, we can to save them to our global environment. DESeq2 calculates results for all combinations of levels in your experimental design. The `resultsNames()` function tells us the name of each result that DESeq2 has calculated, so we can choose which one to look at by specifying "name = " in `results()`. The `results()` function will output a matrix of all genes, including those with similar or differential expression between the two conditions.
 
 ```{r generate result table}
@@ -135,3 +169,4 @@ If you want more information about DESeq2, you can access the package vignette b
 ```{r vignette, eval=FALSE}
 vignette("DESeq2")
 ```
+
