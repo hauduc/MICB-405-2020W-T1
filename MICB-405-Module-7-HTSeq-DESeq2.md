@@ -173,5 +173,7 @@ vignette("DESeq2")
 ```
 
 ### Deliverable
-Now that you have a distance matrix and a 
+Export the heatmap and include it in your group's submission document.
+
+Now that you have a distance matrix and a list of significant genes, what is one downstream analysis you could do that could inform you about a biological difference between the two treatment groups? 
 
