@@ -64,6 +64,9 @@ You should always begin an R script with a simple header:
 The next step of any R script is to load all of the packages that you plan to use:
 
 Be sure to install any packages you have not installed previously on your laptop.
+
+DESeq2 will need to be downloaded with BiocManager: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+
 ```{r load packages, message=FALSE, warning=FALSE}
 library(DESeq2)
 library(tidyverse)
