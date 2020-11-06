@@ -4,12 +4,12 @@
 #### Based on Meren Lab Anvio Tutorial V2
 
 ### Resources:
-http://merenlab.org/2016/06/22/anvio-tutorial-v2/
-http://merenlab.org/2016/06/26/installation-v2/
+Original article: https://peerj.com/articles/1319/
+Metagenomics tutorial: http://merenlab.org/2016/06/22/anvio-tutorial-v2/
+Installation tutorial: http://merenlab.org/2016/06/26/installation-v2/
 
 ### Overview
 In this tutorial, we will use Anvio to visualize example metagenomic data. You will then be able to apply what you learned here to the Saanich metagenomic data should you choose the metagenomic project.
-
 
 ### Installation for Linux (local or server) & Windows WSL
 ```
@@ -167,7 +167,7 @@ This is the simplest way to run the interactive interface on your merged anvi’
 anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
 ```
 
-Anvi'o will then create an internal "server" which you can access by typing ```localhost:8080``` in your web browser, preferably Chrome.
+Anvi'o will then create an internal "server" which you can access by typing ```localhost:8080``` in your web browser, preferably Chrome. You may have a slighly different port number on your computer to make sure to pay attention to whatever the terminal gives you and input that.
 
 Then press Draw to create an initial visualization.
 
