@@ -21,6 +21,7 @@ https://www.anaconda.com/products/individual
 ```
 mkdir ~/anvio_tutorial && cd ~/anvio_tutorial
 conda config --set auto_activate_base false
+conda config --set channel_priority false
 conda create -y --name anvio-6.2 python=3.6
 conda activate anvio-6.2
 conda install -y -c conda-forge -c bioconda anvio==6.2
