@@ -179,6 +179,8 @@ Using additional data files: When you need to display more than what is stored i
 
 Setting a taxonomic level. When information about taxonomy is available in an anvi’o contigs database, anvi’o interactive interface will start utilizing it automatically and you will see a taxonomy layer in the interface for each of your contigs. By default the genus names will be used, however, you can change that behavior using the --taxonomic-level flag.
 
+### Deliverable
+
 Play around with different ways to visualize the data and save it as an SVG file, then submit that SVG file as your assignment.
 
 Can you switch to a phylogram view? What additional information does this help display about your separate bins?
