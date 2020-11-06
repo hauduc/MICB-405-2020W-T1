@@ -50,10 +50,7 @@ conda activate anvio-6.2
 
 ### Download data
 ```
-wget https://raw.githubusercontent.com/meren/anvio/master/anvio/tests/sandbox/contigs.fa \
-     https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-01-RAW.bam \
-     https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-02-RAW.bam \
-     https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-03-RAW.bam
+wget https://raw.githubusercontent.com/meren/anvio/master/anvio/tests/sandbox/contigs.fa https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-01-RAW.bam https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-02-RAW.bam https://github.com/meren/anvio/raw/master/anvio/tests/sandbox/SAMPLE-03-RAW.bam
 
 ```
 
@@ -63,7 +60,7 @@ An anvi’o contigs database will keep all the information related to your conti
 The following is the simplest way of creating a contigs database:
 
 ```
-anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'An example contigs database'
+anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'A contigs database'
 ```
 
 When you run this command, anvi-gen-contigs-database will, compute k-mer frequencies for each contig (the default is 4, but you can change it using --kmer-size parameter if you feel adventurous).
