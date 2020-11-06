@@ -5,7 +5,9 @@
 
 ### Resources:
 Original article: https://peerj.com/articles/1319/
+
 Metagenomics tutorial: http://merenlab.org/2016/06/22/anvio-tutorial-v2/
+
 Installation tutorial: http://merenlab.org/2016/06/26/installation-v2/
 
 ### Overview
