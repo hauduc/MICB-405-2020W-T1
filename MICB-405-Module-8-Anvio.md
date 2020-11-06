@@ -13,7 +13,7 @@ In this tutorial, we will use Anvio to visualize example metagenomic data. You w
 
 ### Installation for Linux (local or server) & Windows WSL
 ```
-mkdir anvio_tutorial && cd anvio_tutorial
+mkdir ~/anvio_tutorial && cd ~/anvio_tutorial
 conda config --set auto_activate_base false
 conda create -y --name anvio-6.2 python=3.6
 conda activate anvio-6.2
@@ -21,7 +21,7 @@ conda install -y -c conda-forge -c bioconda anvio==6.2
 pip install "cherrypy>=3.0.8,<9.0.0"
 ```
 
-### Installation for macOS (untested)
+### Installation for macOS (untested by Axel)
 ```
 # first get a copy of the following file (if you get a "command not found"
 # error for wget, you can either install it first, or manually download the
@@ -70,7 +70,7 @@ anvi-gen-contigs-database --help
 
 Once you have your contigs database, you can start importing things into it, or directly go to the profiling step.
 
-### anvi-run-hmms
+#### anvi-run-hmms
 
 Although this is absolutely optional, you shouldn’t skip this step. Anvi’o can do a lot with hidden Markov models (HMMs provide statistical means to model complex data in probabilistic terms that can be used to search for patterns, which works beautifully in bioinformatics where we create models from known sequences, and then search for those patterns rapidly in a pool of unknown sequences to recover hits). To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute multiple published bacterial single-copy gene collections), run this command:
 
@@ -141,7 +141,12 @@ The next step in the workflow is to to merge all anvi’o profiles.
 This is the simplest form of the anvi-merge command:
 
 ```
-anvi-merge SAMPLE-01/PROFILE.db SAMPLE-02/PROFILE.db SAMPLE-03/PROFILE.db -o SAMPLES-MERGED -c contigs.db --enforce-hierarchical-clustering
+anvi-merge SAMPLE-01/PROFILE.db \
+           SAMPLE-02/PROFILE.db \
+           SAMPLE-03/PROFILE.db \
+           -o SAMPLES-MERGED \
+           -c contigs.db \
+           --enforce-hierarchical-clustering
 ```
 
 When you run anvi-merge, it will attempt to create multiple clusterings of your splits using the default clustering configurations. Please take a quick look at the default clustering configurations for merged profiles –they are pretty easy to understand. By default, anvi’o will use euclidean distance and ward linkage algorithm to organize contigs; however, you can change those default values with the --distance and --linkage parameters (available options for distance metrics and linkage algorithms are listed in this release note). Hierarchical clustering results are necessary for comprehensive visualization and human guided binning; therefore, by default, anvi’o attempts to cluster your contigs using default configurations. You can skip this step by using --skip-hierarchical-clustering flag. But even if you don’t skip it, anvi’o will skip it for you if you have more than 20,000 splits, since the computational complexity of this process will get less and less feasible with increasing number of splits. That’s OK, though. There are many ways to recover from this. On the other hand, if you want to teach everyone who is the boss, you can force anvi’o try to cluster your splits regardless of how many of them are there by using --enforce-hierarchical-clustering flag. You have the power.
@@ -152,7 +157,7 @@ When you run anvi-merge, it will attempt to create multiple clusterings of your 
 #### anvi-interactive
 Anvi’o interactive interface is one of the most sophisticated parts of anvi’o. In the context of the metagenomic workflow, the interactive interface allows you to browse your data in an intuitive way as it shows multiple aspects of your data, visualize the results of unsupervised binning, perform supervised binning, or refine existing bins.
 
-The interactive interface of anvi’o is written from scratch, and can do much more than what is mentioned above. In fact, you don’t even need anvi’o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are interested in learning more, we have other resources that provide detailed descriptions of the anvi’o interactive interface and data formats it works with.
+The interactive interface of anvi’o is written from scratch, and can do much more than what is mentioned above. In fact, you don’t even need anvi’o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are interested in learning more, there are other resources that provide detailed descriptions of the anvi’o interactive interface and data formats it works with.
 
 Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But anvi-interactive will require you to download the merged directory and your contigs databases to your own computer, because anvi-interactive uses a browser to interact with you. If you don’t want to download anything, you can dig an SSH tunnel to use your server to run anvi-interactive, and the browser on your computer to interact with it. See the post on visualizing from a server.
 
@@ -164,13 +169,16 @@ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
 
 Anvi'o will then create an internal "server" which you can access by typing ```localhost:8080``` in your web browser, preferably Chrome.
 
+Then press Draw to create an initial visualization.
+
 Here is some additional information about the interactive interface (please see a full list of other options by typing anvi-interactive -h):
 
-Storing visual settings. The interactive interface allows you to tweak your presentation of data remarkably, and store these settings in profile databases as “states”. If there is a state stored with the name default, or if you specify a state when you are running the program via the --state parameter, the interactive interface will load it, and proceeds to visualize the data automatically (without waiting for you to click the Draw button). States are simply JSON formatted data, and you can export them from or import them into an anvi’o profile database using the anvi-export-state and anvi-import-state programs. This way you can programmatically edit state files if necessary, and/or use the same state file for multiple projects.
+Storing visual settings: The interactive interface allows you to tweak your presentation of data remarkably, and store these settings in profile databases as “states”. If there is a state stored with the name default, or if you specify a state when you are running the program via the --state parameter, the interactive interface will load it, and proceeds to visualize the data automatically (without waiting for you to click the Draw button). States are simply JSON formatted data, and you can export them from or import them into an anvi’o profile database using the anvi-export-state and anvi-import-state programs. This way you can programmatically edit state files if necessary, and/or use the same state file for multiple projects.
 
-Using additional data files. When you need to display more than what is stored in anvi’o databases for a project, you can pass additional data files to the interactive interface. If you have a newick tree as an alternative organization of your contigs, you can pass it using the --tree parameter, and it would be added to the relevant combo box. If you have extra layers to show around the tree (see Figure 1 in this publication as an example), you can use the --additional-layers parameter. Similarly, you can pass an extra view using the --additional-view parameter. Files for both additional layers and additional view are expected to be TAB-delimited text files and information is to be provided at the split-level (if you hate the way we do this please let us know, and we will be like “alright alright” and finally fix it). Please see the help menu for more information about the expected format for these files.
+Using additional data files: When you need to display more than what is stored in anvi’o databases for a project, you can pass additional data files to the interactive interface. If you have a newick tree as an alternative organization of your contigs, you can pass it using the --tree parameter, and it would be added to the relevant combo box. If you have extra layers to show around the tree (see Figure 1 in this publication as an example), you can use the --additional-layers parameter. Similarly, you can pass an extra view using the --additional-view parameter. Files for both additional layers and additional view are expected to be TAB-delimited text files and information is to be provided at the split-level (if you hate the way we do this please let us know, and we will be like “alright alright” and finally fix it). Please see the help menu for more information about the expected format for these files.
 
 Setting a taxonomic level. When information about taxonomy is available in an anvi’o contigs database, anvi’o interactive interface will start utilizing it automatically and you will see a taxonomy layer in the interface for each of your contigs. By default the genus names will be used, however, you can change that behavior using the --taxonomic-level flag.
 
-Play around with different ways to visualize the data and save it as an SVG file, using this to 
+Play around with different ways to visualize the data and save it as an SVG file, then submit that SVG file as your assignment.
 
+Can you switch to a phylogram view? What additional information does this help display about your separate bins?
