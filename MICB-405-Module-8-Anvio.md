@@ -14,6 +14,10 @@ Installation tutorial: http://merenlab.org/2016/06/26/installation-v2/
 In this tutorial, we will use Anvio to visualize example metagenomic data. You will then be able to apply what you learned here to the Saanich metagenomic data should you choose the metagenomic project.
 
 ### Installation for Linux (local or server) & Windows WSL
+
+If you haven't already, install Anaconda on your server profile or local machine:
+
+https://www.anaconda.com/products/individual
 ```
 mkdir ~/anvio_tutorial && cd ~/anvio_tutorial
 conda config --set auto_activate_base false
@@ -24,6 +28,10 @@ pip install "cherrypy>=3.0.8,<9.0.0"
 ```
 
 ### Installation for macOS (untested by Axel)
+
+If you haven't already, install Anaconda on your server profile or local machine:
+
+https://www.anaconda.com/products/individual
 ```
 # first get a copy of the following file (if you get a "command not found"
 # error for wget, you can either install it first, or manually download the
@@ -161,7 +169,7 @@ Anvi’o interactive interface is one of the most sophisticated parts of anvi’
 
 The interactive interface of anvi’o is written from scratch, and can do much more than what is mentioned above. In fact, you don’t even need anvi’o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are interested in learning more, there are other resources that provide detailed descriptions of the anvi’o interactive interface and data formats it works with.
 
-Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But anvi-interactive will require you to download the merged directory and your contigs databases to your own computer, because anvi-interactive uses a browser to interact with you. If you don’t want to download anything, you can dig an SSH tunnel to use your server to run anvi-interactive, and the browser on your computer to interact with it. See the post on visualizing from a server.
+Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But anvi-interactive will require you to download the merged directory and your contigs databases to your own computer, because anvi-interactive uses a browser to interact with you.
 
 This is the simplest way to run the interactive interface on your merged anvi’o profile:
 
@@ -169,7 +177,7 @@ This is the simplest way to run the interactive interface on your merged anvi’
 anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
 ```
 
-Anvi'o will then create an internal "server" which you can access by typing ```localhost:8080``` in your web browser, preferably Chrome. You may have a slighly different port number on your computer to make sure to pay attention to whatever the terminal gives you and input that.
+While this command runs, Anvi'o will then act as an internal "server" which you can access by typing ```localhost:8080``` in your web browser, preferably Chrome. You may have a slighly different port number on your computer to make sure to pay attention to whatever the terminal gives you and input that.
 
 Then press Draw to create an initial visualization.
 
