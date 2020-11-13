@@ -38,14 +38,16 @@ You'll now need to download the files that will be used to create a reference pa
 ```
 mkdir ~/treesapp_tutorial && cd ~/treesapp_tutorial
 
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/TIGR03080.faa
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/ENOG5028JPK_EggNOGv5.faa
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/p_amoA_FunGene9.5_isolates_C65S300_uclust99.faa
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-AmoA.fasta
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-EmoA.fasta
-wget https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-PxmA.fasta
-wget https://raw.githubusercontent.com/hallamlab/TreeSAPP/master/dev_utils/TIGRFAM_seed_named.faa
-wget https://raw.githubusercontent.com/hallamlab/TreeSAPP/master/dev_utils/TIGRFAM_info.tsv
+guc="https://raw.githubusercontent.com/hallamlab"
+
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/TIGR03080.faa
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/ENOG5028JPK_EggNOGv5.faa
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/p_amoA_FunGene9.5_isolates_C65S300_uclust99.faa
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-AmoA.fasta
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-EmoA.fasta
+wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-PxmA.fasta
+wget ${guc}/TreeSAPP/master/dev_utils/TIGRFAM_seed_named.faa
+wget ${guc}/TreeSAPP/master/dev_utils/TIGRFAM_info.tsv
 
 ```
 
