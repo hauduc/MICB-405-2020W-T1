@@ -48,7 +48,6 @@ wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-EmoA.f
 wget ${guc}/RefPkgs/master/Nitrogen_metabolism/Nitrification/XmoA/uniprot-PxmA.fasta
 wget ${guc}/TreeSAPP/master/dev_utils/TIGRFAM_seed_named.faa
 wget ${guc}/TreeSAPP/master/dev_utils/TIGRFAM_info.tsv
-
 ```
 
 ### Creating a reference package
