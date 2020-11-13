@@ -9,6 +9,8 @@ Original installation guide: https://github.com/hallamlab/TreeSAPP
 
 Tutorial adapted from: https://github.com/hallamlab/TreeSAPP/wiki/PmoA-&-AmoA-reference-package-tutorial
 
+GitHub for this tutorial: https://github.com/hauduc/MICB-405-2020W-T1/blob/master/MICB-405-Module-9-TreeSAPP.md
+
 ### Overview
 Happy Friday! Today we will be working through a basic TreeSAPP workflow using example data from the TreeSAPP GitHub. As there is a lot to take in here, I encourage everyone to take a break after each step and review the supporting documentation to make sure you're understanding what you're doing at each step so you can better understand the output you'll be getting from TreeSAPP. 
 
