@@ -35,8 +35,8 @@ You'll now need to download the files that will be used to create a reference pa
 ```
 mkdir ~/treesapp_tutorial && cd ~/treesapp_tutorial
 
-guc="https://raw.githubusercontent.com/hallamlab"
 nit="https://raw.githubusercontent.com/hallamlab/RefPkgs/master/Nitrogen_metabolism/Nitrification"
+guc="https://raw.githubusercontent.com/hallamlab"
 
 wget ${nit}/XmoA/TIGR03080.faa
 wget ${nit}/XmoA/ENOG5028JPK_EggNOGv5.faa
