@@ -59,12 +59,7 @@ To speed things along we'll be using FastTree to infer the phylogeny and will sk
 
 ```
 cat ENOG5028JPK_EggNOGv5.faa TIGR03080.faa > XmoA_seed.faa  # Create the input FASTA file
-treesapp create \
---fast --bootstraps 0 --headless --overwrite \
---delete --cluster --trim_align -n 4 -m prot -p 0.97 \
---fastx_input XmoA_seed.faa \
--c XmoA \
---output XmoA_seed
+treesapp create --fast --bootstraps 0 --headless --overwrite --delete --cluster --trim_align -n 4 -m prot -p 0.97 --fastx_input XmoA_seed.faa -c XmoA --output XmoA_seed
 ```
 
 The final reference package file is located in ./XmoA_seed/final_outputs/XmoA_build.pkl. This file contains all the individual components of a reference package (multiple sequence alignment, profile HMM, phylogenetic tree, taxonomic lineages) as well as some other data. These files were bundled up using the joblib Python library. They can be accessed individually using the submodule treesapp package.
@@ -74,7 +69,8 @@ You'll notice that you're prompted to edit the 'refpkg_code' attribute of the re
 ```
 # To integrate this package for use in TreeSAPP the following steps must be performed:
 # 1. Replace the current refpkg_code 'Z1111' with:
-# `treesapp package edit refpkg_code $code --overwrite --refpkg_path XmoA_seed/final_outputs/XmoA_build.pkl` where $code is a unique identifier.
+# `treesapp package edit refpkg_code $code --overwrite --refpkg_path XmoA_seed/final_outputs/XmoA_build.pkl` where 
+# $code is a unique identifier.
 # 2. Copy XmoA_seed/final_outputs/XmoA_build.pkl to a directory containing other reference packages you want to analyse. 
 # This may be in treesapp_venv/lib/python3.7/site-packages/treesapp//data/ or elsewhere
 ```
@@ -90,8 +86,7 @@ If you plan on just using this one reference package then you don't really need 
 We can also modify the reference package's description while we're here:
 
 ```
-treesapp package edit description "Alpha subunits of copper membrane monooxygenase enzymes" \
---overwrite --refpkg_path XmoA_seed/final_outputs/XmoA_build.pkl
+treesapp package edit description "Alpha subunits of copper membrane monooxygenase enzymes" --overwrite --refpkg_path XmoA_seed/final_outputs/XmoA_build.pkl
 ```
 
 ### Classify new sequences with TreeSAPP assign
@@ -102,8 +97,7 @@ The command treesapp assign is perhaps the most popular command. Make sure to re
 For this command, we will use BMGE to trim the multiple sequence alignments prior to phylogenetic placement with the --trim_align flag. To use the PmoA and AmoA reference package we've built instead of any other reference packages that come with TreeSAPP we can use the argument --refpkg_dir with the path to a directory containing reference packages we want to use.
 
 ```
-treesapp assign -n 4 -m prot --trim_align --refpkg_dir XmoA_seed/final_outputs/ \
---fastx_input p_amoA_FunGene9.5_isolates_C65S300_uclust99.faa --output p_amoA_FunGene9.5_isolates_assign/
+treesapp assign -n 4 -m prot --trim_align --refpkg_dir XmoA_seed/final_outputs/ --fastx_input p_amoA_FunGene9.5_isolates_C65S300_uclust99.faa --output p_amoA_FunGene9.5_isolates_assign/
 ```
 
 The classification table contains detailed information corresponding to each classified query sequence. It is a tab-delimited table that can be read by a variety of tools. At this point, you can import and begin visualizing different components of the classifications in R.
