@@ -15,7 +15,6 @@ Happy Friday! Today we will be working through a basic TreeSAPP workflow using e
 Firstly, you will need to modify your conda config to set it to download the latest versions of each required software dependency. This is in contrast to Anvi'o, which required some outdated packages that were present in the bioconda and source-forge repositories:
 ```
 conda config --set channel_priority false
-
 ```
 
 Next, you will need to create a new conda environment for TreeSAPP. Make sure to ```conda deactivate``` out of the environment you're currently in.
@@ -23,13 +22,11 @@ Next, you will need to create a new conda environment for TreeSAPP. Make sure to
 ```
 conda create -n treesapp_cenv -c bioconda -c conda-forge treesapp
 conda activate treesapp_cenv
-
 ```
 
 You can review all the possible TreeSAPP sub-commands by simply running the command:
 ```
 treesapp
-
 ```
 
 Alright! Now that you have treesapp successfully installed (hopefully), you will need to get the raw data that will be used to create a reference package and a resulting marker contig map.
@@ -66,7 +63,6 @@ treesapp create \
 --fastx_input XmoA_seed.faa \
 -c XmoA \
 --output XmoA_seed
-
 ```
 
 The final reference package file is located in ./XmoA_seed/final_outputs/XmoA_build.pkl. This file contains all the individual components of a reference package (multiple sequence alignment, profile HMM, phylogenetic tree, taxonomic lineages) as well as some other data. These files were bundled up using the joblib Python library. They can be accessed individually using the submodule treesapp package.
