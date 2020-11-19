@@ -142,8 +142,10 @@ total 3.2G
 Convert to bigWig and sort (on the Orca server)
 ```
 wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes > mm10.chrom.sizes
-LC_COLLATE=C sort -k1=1, -k2=2n treatment_bedgraph.bdg > treatment_bedgraph.sorted.bdg
-LC_COLLATE=C sort -k1=1, -k2=2n input_bedgraph.bdg > input_bedgraph.sorted.bdg
+
+bedtools sort -i treatment_bedgraph.bdg > treatment_bedgraph.sorted.bdg
+bedtools sort -i input_bedgraph.bdg > input_bedgraph.sorted.bdg
+
 bedGraphToBigWig treatment_bedgraph.sorted.bdg mm10.chrom.sizes treatment_bedgraph.sorted.bdg.bw
 bedGraphToBigWig input_bedgraph.sorted.bdg mm10.chrom.sizes input_bedgraph.sorted.bdg.bw
 ```
